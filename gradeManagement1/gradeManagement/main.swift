@@ -123,6 +123,9 @@ while choice != "9"{
                 if let theIndex: Int = getIndices(theStudent){
                     print("\(getName(theStudent))'s overall grade in the class is \(gradeAverages[theIndex])")
                 }
+                else{
+                    print("That student is not in the grade book")
+                }
             }
         }
         
@@ -135,6 +138,9 @@ while choice != "9"{
                     print("\(getName(theStudent))'s grades for this class are")
                     
                     print(getStudentAllGrades(theIndex))
+                }
+                else{
+                    print("That student is not in the grade book")
                 }
             }
         }
@@ -167,12 +173,17 @@ while choice != "9"{
                     var sum: Double = 0.0
                     var index: Int = Int(assignment)! - 1
                     
-                    for i in 0...(allGrades.count - 1){
-                        sum += Double(allGrades[i][index])!
+                    if index > 9 || index < 0{
+                        print("Sorry, that assignment is not in the grade book")
                     }
-                    
-                    var theAverage: Double = round(100*sum/Double(studentNames.count))/100
-                    print("The average for assignment #\(assignment) is \(theAverage)")
+                    else{
+                        for i in 0...(allGrades.count - 1){
+                            sum += Double(allGrades[i][index])!
+                        }
+                        
+                        var theAverage: Double = round(100*sum/Double(studentNames.count))/100
+                        print("The average for assignment #\(assignment) is \(theAverage)")
+                    }
                 }
                 else{
                     print("Sorry, that is not a valid answer")
