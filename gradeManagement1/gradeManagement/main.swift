@@ -190,6 +190,7 @@ while choice != "9"{
                 }
             }
         }
+        //for if the user entered "6" // if the user wants to find the student with the lowest grade
         else if choice == "6"{
             var lowestIndex: Int = 0
             
@@ -201,6 +202,7 @@ while choice != "9"{
             
             print("\(studentNames[lowestIndex]) is the student with the lowest grade: \(gradeAverages[lowestIndex])")
         }
+        //for if the user entered "7" // if the user wants to find the student with the highest grade
         else if choice == "7"{
             var highestIndex: Int = 0
             
@@ -212,6 +214,7 @@ while choice != "9"{
             
             print("\(studentNames[highestIndex]) is the student with the highest grade: \(gradeAverages[highestIndex])")
         }
+        //for if the user entered "8" // if the user wants to get all of the grades in the range of what they entered
         else if choice == "8"{
             print("Enter the lower bound you would like to use: ")
             
@@ -237,6 +240,7 @@ while choice != "9"{
                 }
             }
         }
+        //for if the user entered "9" // if the user wants to quit the application
         else if choice == "9"{
             print("The Grade Manager has been closed. Have a great rest of your day!")
         }
