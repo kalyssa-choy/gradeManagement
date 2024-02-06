@@ -8,9 +8,10 @@
 import Foundation
 import CSV
 
-//variable that keeps track of the user's main choice (the one
+//variable that keeps track of the user's main choice
 var choice: String = "0"
 
+//the arrays that hold the student's data
 var gradeAverages: [Double] = []
 var allGrades: [[String]] = []
 var studentNames: [String] = []
@@ -24,7 +25,6 @@ do{
     
     while var row = csv.next(){
         
-//       old function, but compares the array name to the input: if row[0].lowercased() == studentName.lowercased(){
         let tempName: String = row[0]
         studentNames.append(tempName)
         
@@ -56,6 +56,7 @@ func getName(_ name:String) -> String{
             return studentNames[i]
         }
     }
+    //for if the name the user entered is not in the studentNames array
     return "The name entered is not in the gradebook."
 }
 
@@ -66,6 +67,7 @@ func getIndices(_ name:String) -> Int?{
             return i
         }
     }
+    //for if the student entered is not in the studentNames array
     return nil
 }
 
@@ -123,6 +125,7 @@ while choice != "9"{
                 if let theIndex: Int = getIndices(theStudent){
                     print("\(getName(theStudent))'s overall grade in the class is \(gradeAverages[theIndex])")
                 }
+                //for if the name the user entered in not in the studentNames array
                 else{
                     print("That student is not in the grade book")
                 }
@@ -139,6 +142,7 @@ while choice != "9"{
                     
                     print(getStudentAllGrades(theIndex))
                 }
+                //for if the name the user entered in not in the studentNames array
                 else{
                     print("That student is not in the grade book")
                 }
@@ -173,6 +177,7 @@ while choice != "9"{
                     var sum: Double = 0.0
                     var index: Int = Int(assignment)! - 1
                     
+                    //for if the assignment the user entered is not valid
                     if index > 9 || index < 0{
                         print("Sorry, that assignment is not in the grade book")
                     }
@@ -185,6 +190,7 @@ while choice != "9"{
                         print("The average for assignment #\(assignment) is \(theAverage)")
                     }
                 }
+                //for if the user input is not valid
                 else{
                     print("Sorry, that is not a valid answer")
                 }
@@ -230,11 +236,13 @@ while choice != "9"{
                                 }
                             }
                         }
+                        //for if the input is invalid
                         else{
                             print("Invalid upper bound")
                         }
                     }
                 }
+                //for if the input is invalid
                 else{
                     print("Invalid lower bound")
                 }
@@ -244,9 +252,11 @@ while choice != "9"{
         else if choice == "9"{
             print("The Grade Manager has been closed. Have a great rest of your day!")
         }
+        //for if the input is invalid
         else{
             print("Invalid option")
         }
+        //this line is for spacing the displayed text evenly to separate the messages
         print()
     }
     
