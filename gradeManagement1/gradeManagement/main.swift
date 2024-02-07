@@ -229,16 +229,15 @@ while choice != "9"{
                     print("Enter the upper bound you would like to use: ")
                     
                     if let upperBound = readLine(){
-                        if isNumber(upperBound){
+                        if !isNumber(upperBound) || upperBound <= lowerBound{
+                            print("Invalid upper bound")
+                        }
+                        else{
                             for i in 0...(gradeAverages.count - 1){
                                 if gradeAverages[i] > Double(lowerBound)! && gradeAverages[i] < Double(upperBound)!{
                                     print("\(studentNames[i]): \(gradeAverages[i])")
                                 }
                             }
-                        }
-                        //for if the input is invalid
-                        else{
-                            print("Invalid upper bound")
                         }
                     }
                 }
