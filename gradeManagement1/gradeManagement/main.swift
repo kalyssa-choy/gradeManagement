@@ -174,20 +174,25 @@ while choice != "9"{
             
             if let assignment = readLine(){
                 if isNumber(assignment){
-                    var sum: Double = 0.0
-                    var index: Int = Int(assignment)! - 1
-                    
-                    //for if the assignment the user entered is not valid
-                    if index > 9 || index < 0{
-                        print("Sorry, that assignment is not in the grade book")
+                    if assignment.contains("."){
+                        print("Invalid assignment number")
                     }
                     else{
-                        for i in 0...(allGrades.count - 1){
-                            sum += Double(allGrades[i][index])!
-                        }
+                        var sum: Double = 0.0
+                        var index: Int = Int(assignment)! - 1
                         
-                        var theAverage: Double = round(100*sum/Double(studentNames.count))/100
-                        print("The average for assignment #\(assignment) is \(theAverage)")
+                        //for if the assignment the user entered is not valid
+                        if index > 9 || index < 0{
+                            print("Sorry, that assignment is not in the grade book")
+                        }
+                        else{
+                            for i in 0...(allGrades.count - 1){
+                                sum += Double(allGrades[i][index])!
+                            }
+                            
+                            var theAverage: Double = round(100*sum/Double(studentNames.count))/100
+                            print("The average for assignment #\(assignment) is \(theAverage)")
+                        }
                     }
                 }
                 //for if the user input is not valid
